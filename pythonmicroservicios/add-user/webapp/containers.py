@@ -11,11 +11,11 @@ class Container(containers.DeclarativeContainer):
 
     wiring_config = containers.WiringConfiguration(modules=[".endpoints"])
 
-    config = providers.Configuration(yaml_files=["config.yml"])
+    config = providers.Configuration(yaml_files=["config.yml"]) # como un .env
 
-    db = providers.Singleton(Database, db_url=config.db.url)
+    db = providers.Singleton(Database, db_url=config.db.url) #invesitgar como implementar singleton (libreria o hardcodeado)
 
-    user_repository = providers.Factory(
+    user_repository = providers.Factory(  #investigar como implemento factory (libreria o hardcodeado)
         UserRepository,
         session_factory=db.provided.session,
     )

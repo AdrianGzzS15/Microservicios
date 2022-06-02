@@ -1,5 +1,2 @@
-// Application Module
+// Application Modul
 
-function create_app() {
-    
-}

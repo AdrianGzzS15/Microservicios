@@ -6,12 +6,12 @@ from typing import Iterator
 from .repositories import UserRepository
 from .models import User
 
-
+#Capa de servicio (manda a repositorio, parece controller JAAJAJJ A wtf  )
 class UserService:
 
     def __init__(self, user_repository: UserRepository) -> None:
         self._repository: UserRepository = user_repository
-
+    #self es this. no utilizar arrow functions 
     def get_users(self) -> Iterator[User]:
         return self._repository.get_all()
 

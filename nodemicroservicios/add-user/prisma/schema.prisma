@@ -1,0 +1,11 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./webapp/webapp.db"
+}
+
+model Users {
+    id                  Int     @id @default(autoincrement())
+    email               String  @unique @db.VarChar(255)
+    hashed_password     String  @db.VarChar(255)
+    is_active           Boolean @db.Boolean
+}

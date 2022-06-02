@@ -9,6 +9,8 @@ from .repositories import NotFoundError
 
 router = APIRouter()
 
+#Router de express
+
 
 @router.get("/users")
 @inject
@@ -32,9 +34,7 @@ def get_by_id(
 
 @router.post("/users", status_code=status.HTTP_201_CREATED)
 @inject
-def add(
-        user_service: UserService = Depends(Provide[Container.user_service]),
-):
+def add(user_service: UserService = Depends(Provide[Container.user_service]),):
     return user_service.create_user()
 
 

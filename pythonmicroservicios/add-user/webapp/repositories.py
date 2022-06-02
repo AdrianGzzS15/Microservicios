@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from .models import User
 
-
+#controller (parece mas servicio, recibe de services y manda a modelo. )
 class UserRepository:
 
     def __init__(self, session_factory: Callable[..., AbstractContextManager[Session]]) -> None:
