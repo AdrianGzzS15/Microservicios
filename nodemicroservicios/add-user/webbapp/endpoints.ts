@@ -1,46 +1,29 @@
 // Endpoint Module
 
 import express from "express";
-import Container from "typedi";
-export const router = express.Router();
+import { User_Services } from "./types" 
 
+
+export const router = express.Router();
 const swaggerDocument = require('./swagger.json'); 
 const swaggerUi = require("swagger-ui-express");
-import { UserServices } from "./services" 
 
-    
-    router.use(express.json())
-    router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-    let user_services = new UserServices();
-    
-    router.get("/users", (req, res) => 
-        res.send (
-            
 
-        ) 
-    
-    )
-    
-    router.get("/users/:user_id", (req, res) => 
-        res.send(
-    
-        )
-    )
-    
-    router.post("/users", (req, res) => 
-        res.send(
-    
-        )
-    )
+router.use(express.json())
 
-    router.delete("/users/:user_id", (req, res) => 
-        res.send(
+router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    
+router.get("/users",User_Services.get_users)
+    
+router.get("/users/:user_id",User_Services.get_user_by_id)
+    
+router.post("/users",User_Services.create_user)
 
-        )
-    )
+router.delete("/users/:user_id",User_Services.delete_user_by_id)
 
-    router.get("/status", (req, res) => 
-        res.status(200).send("Ok")
-    )
+router.get("/status", (req, res) => 
+    res
+        .status(200).send("Ok")
+)
 

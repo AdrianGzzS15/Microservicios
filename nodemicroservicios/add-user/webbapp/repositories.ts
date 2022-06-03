@@ -1,32 +1,34 @@
-import { prisma, users_models} from "./index"
+import { prisma, users_models} from "./types"
 
+// services
 
-export class UserRepository{
     
-    async get_all(){
+    async function get_all(){
         return await users_models.get_all();
     }
 
-    async get_by_id(id: number){
+    async function get_by_id(id: number){
         return await users_models.get_by_id(id);
     }
 
-    async add(
-      id: number,
+    async function add(
       email: string,
-      hashed_password: string,
-      is_active: boolean,  
+      hashed_password: string, 
     ){
         const data = {
-            id,
             email,
             hashed_password,
-            is_active,
         };
         return await users_models.add(data);
     }
 
-    async delete_by_id(id:number){
+    async function delete_by_id(id:number){
         return await users_models.delete_by_Id(id);
     }
-}
+
+export const UserRepository = {
+    get_all,
+    get_by_id,
+    add,
+    delete_by_id,
+};
