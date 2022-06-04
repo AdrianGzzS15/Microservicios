@@ -1,11 +1,11 @@
 
 import { prisma } from "./database";
-import { TriggerEmail } from "./dto_files";
+import { LookEmail, TriggerEmail } from "./dto_files";
 import { trigger , createTrigger} from "./types";
 
 // modelo
-async function get_by_id(email: string){
-    return prisma.users.findUnique({where: {email: String(email)} });
+async function get_by_id(from_email: LookEmail["from_email"]){
+    return prisma.trigger.findMany({where: { from_email: from_email } });
 }
 
 async function add(data: createTrigger){

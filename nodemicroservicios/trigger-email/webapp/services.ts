@@ -7,9 +7,10 @@ import { UserRepository, LookEmail} from "./types"
 // controllers
 
 const get_email_by_id = async (req: Request, res: Response) => {
-    let { id } = req.params
+    let { email } = req.params
+    
     try {
-        let response = await UserRepository.get_by_id(Number(id));
+        let response = await UserRepository.get_by_id(email);
         //return response;
         return res.status(200).json({
             message: response

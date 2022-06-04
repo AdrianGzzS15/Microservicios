@@ -1,30 +1,22 @@
-import { users_models} from "./types"
+import { LookEmail } from "./dto_files";
+import { trigger_models} from "./types"
 
 // services
 
-async function get_all(){
-    return await users_models.get_all();
+async function get_by_id(from_email: string){
+    return await trigger_models.get_by_id(from_email);
 }
 
-async function get_by_id(id: number){
-    return await users_models.get_by_id(id);
-}
-
-async function add(
-    email: string,
-    hashed_password: string, 
+async function _trigger(
+    from_email: string,
+    to_email: string,
+    content: string
 ){
-    const data = { email, hashed_password };
-    return await users_models.add(data);
-}
-
-async function delete_by_id(id:number){
-    return await users_models.delete_by_Id(id);
+    const data = { from_email, to_email, content };
+    return await trigger_models.add(data);
 }
 
 export const UserRepository = {
-    get_all,
     get_by_id,
-    add,
-    delete_by_id,
+    _trigger
 };
