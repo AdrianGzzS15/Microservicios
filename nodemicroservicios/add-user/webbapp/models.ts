@@ -14,6 +14,12 @@ async function get_by_id(id: number){
 async function add(data: createusers){
     return prisma.users.create({
         data:data,
+        select: {
+           email: true,
+           hashed_password: true,
+           id: true,
+           is_active: true
+       } 
     });
 }
 

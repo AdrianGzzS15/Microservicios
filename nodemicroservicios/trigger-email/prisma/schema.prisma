@@ -7,9 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model trigger {
+  id         Int     @id @default(autoincrement())
+  from_email String?
+  to_email   String?
+  content    String?
+}
+
 model users {
   id              Int      @id @default(autoincrement())
   email           String?  @unique(map: "sqlite_autoindex_users_1")
   hashed_password String?
-  is_active       Boolean @default(true)
+  is_active       Boolean?
 }

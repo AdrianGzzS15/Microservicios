@@ -7,12 +7,13 @@ import { UserRepository } from "./types"
 
 // controllers
 
-
-
 const get_users = async (req: Request, res: Response) =>{
     try{
         let response = await UserRepository.get_all();
-        return response;
+        //return response;
+        return res.status(200).json({
+            message: response
+        });
     } catch (err){
         res
             .status(500)
@@ -24,10 +25,10 @@ const get_user_by_id = async (req: Request, res: Response) => {
     let { id } = req.params
     try {
         let response = await UserRepository.get_by_id(Number(id));
-        return response;
-        // return res.status(200).json({
-        //     response
-        // });
+        //return response;
+        return res.status(200).json({
+            message: response
+        });
     } catch (err) {
         res
             .status(500)
@@ -43,7 +44,10 @@ const create_user = async (req: Request, res: Response) => {
     const password = "pwd"
     try{
         let response = await UserRepository.add(email, password);
-        return response;
+        //return response;
+        return res.status(200).json({
+            message: response
+        });
     } catch (err) {
         res
             .status(500)
@@ -55,7 +59,10 @@ const delete_user_by_id = async (req: Request, res: Response) => {
     let { id } = req.params;
     try {
         let response = await UserRepository.delete_by_id(Number(id));
-        return response
+       // return response
+       return res.status(204).json({
+        message: response
+    });
     } catch (err) {
         res
             .status(500)

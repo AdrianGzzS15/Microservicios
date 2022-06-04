@@ -1,30 +1,26 @@
-import { prisma, users_models} from "./types"
+import { users_models} from "./types"
 
 // services
 
-    
-    async function get_all(){
-        return await users_models.get_all();
-    }
+async function get_all(){
+    return await users_models.get_all();
+}
 
-    async function get_by_id(id: number){
-        return await users_models.get_by_id(id);
-    }
+async function get_by_id(id: number){
+    return await users_models.get_by_id(id);
+}
 
-    async function add(
-      email: string,
-      hashed_password: string, 
-    ){
-        const data = {
-            email,
-            hashed_password,
-        };
-        return await users_models.add(data);
-    }
+async function add(
+    email: string,
+    hashed_password: string, 
+){
+    const data = { email, hashed_password };
+    return await users_models.add(data);
+}
 
-    async function delete_by_id(id:number){
-        return await users_models.delete_by_Id(id);
-    }
+async function delete_by_id(id:number){
+    return await users_models.delete_by_Id(id);
+}
 
 export const UserRepository = {
     get_all,

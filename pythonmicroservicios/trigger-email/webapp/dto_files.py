@@ -7,3 +7,4 @@ class TriggerEmail(BaseModel):
 
 class LookEmails(BaseModel):
     from_email: str
+ 

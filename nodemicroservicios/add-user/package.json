@@ -16,10 +16,10 @@
   },
   "name": "add-user-typescript",
   "version": "1.0.0",
-  "main": "webapp/main.ts",
+  "main": "webapp/application.ts",
   "scripts": {
     "dev": "nodemon webapp/init.ts",
-    "start": "ts-node webapp/main.ts"
+    "start": "ts-node webapp/application.ts"
   },
   "author": "Adrian",
   "license": "ISC",
