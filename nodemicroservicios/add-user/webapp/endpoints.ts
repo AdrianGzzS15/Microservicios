@@ -16,11 +16,11 @@ router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     
 router.get("/users",User_Services.get_users)
     
-router.get("/users/:user_id",User_Services.get_user_by_id)
+router.get("/users/:id",User_Services.get_user_by_id)
     
 router.post("/users",User_Services.create_user)
 
-router.delete("/users/:user_id",User_Services.delete_user_by_id)
+router.delete("/users/:id",User_Services.delete_user_by_id)
 
 router.get("/status", (req, res) => 
     res

@@ -1,18 +1,18 @@
-import { LookEmail } from "./dto_files";
+import { LookEmail, TriggerEmail } from "./dto_files";
 import { trigger_models} from "./types"
 
 // services
 
-async function get_by_id(from_email: string){
-    return await trigger_models.get_by_id(from_email);
+async function get_by_id(data: LookEmail){
+    const from_email = data.from_email
+    console.log("repos")
+    console.log(data)
+    return await trigger_models.get_by_id(String(from_email));
 }
 
-async function _trigger(
-    from_email: string,
-    to_email: string,
-    content: string
-){
-    const data = { from_email, to_email, content };
+async function _trigger(data: TriggerEmail){
+    console.log("I am in repo")
+    console.log(data)
     return await trigger_models.add(data);
 }
 
