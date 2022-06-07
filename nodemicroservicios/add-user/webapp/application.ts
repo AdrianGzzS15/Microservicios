@@ -1,12 +1,13 @@
 // Application Modul
 
+// Adrian Gonzalez Saldivar A00827845
 // import 'reflect-metadata';
 
 import express from "express";
 
 import {router } from "./endpoints";
 
-const port = 3001;
+const port = 8000;
 
 const app = express();
 

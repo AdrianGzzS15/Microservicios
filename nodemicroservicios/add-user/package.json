@@ -19,7 +19,7 @@
   "main": "webapp/application.ts",
   "scripts": {
     "dev": "nodemon webapp/init.ts",
-    "start": "ts-node webapp/application.ts"
+    "start": "npx ts-node webapp/application.ts"
   },
   "author": "Adrian",
   "license": "ISC",
