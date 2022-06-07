@@ -1,6 +1,6 @@
-import { users_models} from "./types"
+//Repositories Module (functions as services)
 
-// services
+import { users_models } from "./types"
 
 async function get_all(){
     return await users_models.get_all();

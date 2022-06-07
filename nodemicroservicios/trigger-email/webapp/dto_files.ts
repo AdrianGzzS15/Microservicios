@@ -1,4 +1,6 @@
-import { trigger } from "@prisma/client"
+//DTO Files Module
+
+// import { trigger } from "./types"
 
 export type TriggerEmail = {
     from_email: string;

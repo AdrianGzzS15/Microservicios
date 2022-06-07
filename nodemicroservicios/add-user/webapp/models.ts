@@ -1,14 +1,21 @@
+//Models module
 
 import { prisma } from "./database";
 import { users , createusers} from "./types";
 
-// modelo
+
 async function get_all(){
     return prisma.users.findMany();
 }
 
 async function get_by_id(id: number){
-    return prisma.users.findUnique({where: {id: Number(id)} });
+    return prisma.users.findUnique(
+        {
+            where: {
+                id: Number(id)
+            }
+        }
+    );
 }
 
 async function add(data: createusers){
@@ -24,7 +31,13 @@ async function add(data: createusers){
 }
 
 async function delete_by_Id(id: number){
-    return prisma.users.delete({where: {id: Number(id)}});
+    return prisma.users.delete(
+        {
+            where: {
+                id: Number(id)
+            }
+        }
+    );
 }
 
 export const users_models = {

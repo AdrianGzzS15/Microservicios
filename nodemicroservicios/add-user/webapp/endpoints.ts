@@ -8,8 +8,6 @@ export const router = express.Router();
 const swaggerDocument = require('./swagger.json'); 
 const swaggerUi = require("swagger-ui-express");
 
-
-
 router.use(express.json())
 
 router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

@@ -4,8 +4,7 @@
 // import 'reflect-metadata';
 
 import express from "express";
-
-import {router } from "./endpoints";
+import { router } from "./endpoints";
 
 const port = 9000;
 
@@ -16,5 +15,5 @@ app.use(express.json());
 app.use(router);
 
 app.listen(port, () =>
-  console.log(`Server listening on port ${port}:http://localhost:${port}`)
+  console.log(`http://localhost:${port}`)
 );
